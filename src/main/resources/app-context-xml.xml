@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="messageProvider" class="com.apress.prospring4.ch3.beans.xml.ConfigurableMessageProvider">
+		<constructor-arg value="This is a configurable message"/>
+	</bean>
+
+	<bean id="messageRenderer" class="com.apress.prospring4.ch3.beans.xml.StandardOutMessageRenderer">
+		<property name="messageProvider" ref="messageProvider"></property>
+	</bean>
+	
+	<bean id="constructorConfusion" class="com.apress.prospring4.ch3.beans.xml.ConstructorConfusion">
+		<constructor-arg type="int">
+			<value>90</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="simple" class="com.apress.prospring4.ch3.beans.xml.InjectSimpleValues">
+		<property name="name" value="Suman Khara"/>
+		<property name="age" value="39"/>
+		<property name="height" value="1.66"/>
+		<property name="programmer" value="true"/>
+		<property name="ageInSeconds" value="100984356187"/>
+	</bean>
+	
+	<bean id="injectSimpleConfig" class="com.apress.prospring4.ch3.beans.xml.InjectSimpleConfig"/>
+	
+	<bean id="injectSimpleSpel" class="com.apress.prospring4.ch3.beans.xml.InjectSimpleSpel">
+		<property name="name" value="#{injectSimpleConfig.name}"/>
+		<property name="age" value="#{injectSimpleConfig.age}"/>
+		<property name="height" value="#{injectSimpleConfig.height}"/>
+		<property name="programmer" value="#{injectSimpleConfig.programmer}"/>
+		<property name="ageInSeconds" value="#{injectSimpleConfig.ageInSeconds}"/>
+	</bean>
+	
+	<bean id="beanNamePrinter" class="com.apress.prospring4.ch4.BeanNamePrinter"/>
+</beans>

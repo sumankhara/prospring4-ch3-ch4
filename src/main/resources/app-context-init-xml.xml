@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-lazy-init="true">
+
+	<bean id="bean1" class="com.apress.prospring4.ch4.SimpleBean" init-method="init" destroy-method="destroy">
+		<property name="name" value="Ushnik Khara"/>
+		<property name="age" value="3"/>
+	</bean>
+	
+	<bean id="bean2" class="com.apress.prospring4.ch4.SimpleBean" init-method="init" destroy-method="destroy">
+		<property name="age" value="39"/>
+	</bean>
+	
+	<bean id="bean3" class="com.apress.prospring4.ch4.SimpleBean" init-method="init" destroy-method="destroy">
+		<property name="name" value="Ushnik Khara"/>
+	</bean>
+	
+	<bean id="simpleBeanWithInterface1" class="com.apress.prospring4.ch4.SimpleBeanWithInterface">
+		<property name="name" value="Ushnik Khara"/>
+		<property name="age" value="3"/>
+	</bean>
+	
+	<bean id="simpleBeanWithInterface2" class="com.apress.prospring4.ch4.SimpleBeanWithInterface">
+		<property name="age" value="39"/>
+	</bean>
+	
+	<bean id="simpleBeanWithInterface3" class="com.apress.prospring4.ch4.SimpleBeanWithInterface">
+		<property name="name" value="Ushnik Khara"/>
+	</bean>
+
+</beans>
